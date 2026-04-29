@@ -1,19 +1,25 @@
 name: Deploy to GitHub Pages
+
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout your repository
         uses: actions/checkout@v4
-      - name: Install, build, and upload
+
+      - name: Install, build, and upload your site
         uses: withastro/action@v2
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
