@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Данные можно вынести в отдельный файл, но для начала оставим тут
+const skills: string[] = ["TypeScript", "Astro", "React", "Node.js", "CSS/Tailwind", "Git"];
+
+interface Job {
+  company: string;
+  role: string;
+  period: string;
+  description: string;
+}
+
+const experience: Job[] = [
+  {
+    company: "Green Tech Inc.",
+    role: "Senior Frontend Developer",
+    period: "2022 — Наст. время",
+    description: "Разработка эко-системы приложений на React и TypeScript."
+  },
+  {
+    company: "Beige Solutions",
+    role: "Junior Developer",
+    period: "2020 — 2022",
+    description: "Верстка и поддержка сайтов на различных CMS."
+  }
+];
+---
+
+<Layout title="Мое CV | Frontend Developer">
+	<header class="header">
+		<h1>Иван Иванов</h1>
+		<p>TypeScript Frontend Developer</p>
+    <div style="margin-top: 1rem;">
+      <a href="mailto:email@example.com" style="color: var(--bg-beige); margin: 0 10px;">Email</a>
+      <a href="https://github.com" style="color: var(--bg-beige); margin: 0 10px;">GitHub</a>
+    </div>
+	</header>
+
+	<container>
+		<section>
+			<h2>О себе</h2>
+			<p>
+				Увлеченный разработчик с фокусом на чистоту кода и производительность. 
+        Люблю работать с современными стеками и создавать удобные интерфейсы.
+			</p>
+		</section>
+
+		<section>
+			<h2>Навыки</h2>
+			<div>
+				{skills.map(skill => (
+					<span class="badge">{skill}</span>
+				))}
+			</div>
+		</section>
+
+		<section>
+			<h2>Опыт работы</h2>
+			{experience.map(job => (
+				<div class="experience-item">
+					<h3 style="margin: 0;">{job.role}</h3>
+					<p style="font-weight: bold; color: var(--accent-green); margin: 0.2rem 0;">{job.company} | {job.period}</p>
+					<p>{job.description}</p>
+				</div>
+			))}
+		</section>
+
+    <section>
+      <h2>Образование</h2>
+      <p>МГТУ им. Баумана, Информационные технологии, 2020г.</p>
+    </section>
+	</container>
+</Layout>
