@@ -2,119 +2,167 @@
 import Layout from "../layouts/Layout.astro";
 
 const skills: string[] = [
-    "TypeScript",
-    "Astro",
-    "React",
-    "Node.js",
-    "CSS/Tailwind",
+    "Golang",
+    "SQL",
+    "PostgreSQL",
+    "Redis",
+    "ClickHouse",
+    "MongoDB",
+    "Cassandra",
+    "S3",
+    "Kafka",
+    "Nats",
+    "Prometheus",
+    "VictoriaMetrics",
+    "Graylog",
+    "OpenTelemetry",
+    "Jaeger",
+    "Grafana",
+    "Nginx",
+    "Traefik",
+    "Docker",
+    "Kubernetes",
+    "Helm",
     "Git",
+    "GitLab CI",
+    "Linux",
+    "Bash",
+    "HTTP",
+    "REST",
+    "gRPC",
+    "Microservices",
+    "Open API",
+    "Clean Architecture",
+    "SOLID",
+    "DRY",
+    "KISS",
+    "YAGNI",
+    "Algorithms",
+    "Data Structures",
 ];
 
 interface Job {
-    role: string;
-    company: string;
-    period: string;
-    duration: string; // "1 yr. 7 mo."
-    description: string;
+    name: string;
     achievements: string[];
-    tags: { name: string; primary?: boolean }[];
+    stack: { name: string; primary?: boolean }[];
 }
 
 const experience: Job[] = [
     {
-        role: "Frontend Developer",
-        company: "AdTech company",
-        period: "2022 — Present",
-        duration: "1 yr. 7 mo.",
-        description: "Advertising solutions for web, mobile, and Smart TV.",
+        name: "ООО «Максима» – референс сервиса на Go для миграции легаси",
         achievements: [
-            "Automated product generation: **4 hrs dev/day → 20 min manager**",
-            "Statistics module: data loss reduced by **4x**",
-            "Corporate portal automation: **3 hrs → 10 min per week**",
+            "Интегрировал Firebird SQL как основную БД, настроив connection pool (MaxOpenConns, MaxIdleConns, ConnMaxLifetime) и thread-safe закрытие соединений через mutex.",
+            "Организовал миграции базы данных с использованием golang-migrate, создав версионированные миграции для таблиц, а также автоматическое применение миграций при старте приложения.",
+            "Настроил структурированное логирование через uber-go/zap с контекстом операций, graceful shutdown по сигналам ОС с таймаутом 30 секунд и валидацию входящих DTO.",
+            "Настроил SSL/TLS termination в Nginx с поддержкой TLSv1.2 и TLSv1.3, cipher suite HIGH, что обеспечило безопасное HTTPS-соединение и сняло нагрузку криптографических операций с backend-сервиса.",
+            "Реализовал reverse proxy маршрутизацию с разделением трафика: API-запросы проксируются на Go backend, а остальной трафик — на фронтенд, с полной настройкой CORS (preflight, credentials, custom headers) для        взаимодействия SPA с backend.",
         ],
-        tags: [
-            { name: "React", primary: true },
-            { name: "TypeScript", primary: true },
-            { name: "Next.js" },
-            { name: "Tailwind" },
-            { name: "Jest" },
+        stack: [
+            { name: "Golang" },
+            { name: "Chi" },
+            { name: "REST" },
+            { name: "HTTPS" },
+            { name: "Firebird" },
+            { name: "Docker" },
+            { name: "Docker Compose" },
+            { name: "Nginx" },
         ],
     },
     {
-        role: "Frontend Developer",
-        company: "AdTech company",
-        period: "2022 — Present",
-        duration: "1 yr. 7 mo.",
-        description: "Advertising solutions for web, mobile, and Smart TV.",
+        name: "Мессенджер для кафедры «Minor» – курсовой/дипломный проект",
         achievements: [
-            "Automated product generation: **4 hrs dev/day → 20 min manager**",
-            "Statistics module: data loss reduced by **4x**",
-            "Corporate portal automation: **3 hrs → 10 min per week**",
+            "Спроектировал и внедрил комплексную микросервисную архитектуру, объединившую межсервисное взаимодействие по gRPC, высокоскоростную шину данных NATS JetStream и гибридную систему хранения (PostgreSQL, Cassandra, Redis).",
+            "Спроектировал и развернул единый API-шлюз на базе Traefik, обеспечивший централизованную маршрутизацию HTTP и WebSocket трафика, балансировку нагрузки и терминацию SSL.",
+            " Внедрил механизм безопасного управления сессиями на базе JWT с использованием Redis для реализации Token Rotation.",
+            "Разработал Gateway-сервис на языке Go для обеспечения мгновенного обмена данными через протокол WebSocket.",
+            "Спроектировал и реализовал на языке Go микросервис уведомлений, обеспечивший мгновенную доставку Pushуведомлений и Email-оповещений.",
         ],
-        tags: [
-            { name: "React", primary: true },
-            { name: "TypeScript", primary: true },
-            { name: "Next.js" },
-            { name: "Tailwind" },
-            { name: "Jest" },
+        stack: [
+            { name: "Golang" },
+            { name: "PostgreSQL" },
+            { name: "NATS" },
+            { name: "JetStream" },
+            { name: "Redis" },
+            { name: "Cassandra" },
+            { name: "S3" },
+            { name: "Traefik" },
+            { name: "gRPC" },
+            { name: "REST" },
+            { name: "Prometheus" },
+            { name: "Grafana" },
+            { name: "OpenTelemetry" },
+            { name: "Jaeger" },
+            { name: "Docker" },
+            { name: "React" },
+            { name: "TypeScript" },
         ],
     },
     {
-        role: "Frontend Developer",
-        company: "AdTech company",
-        period: "2022 — Present",
-        duration: "1 yr. 7 mo.",
-        description: "Advertising solutions for web, mobile, and Smart TV.",
+        name: "Менеджер паролей «Password manager» – пет-проект",
         achievements: [
-            "Automated product generation: **4 hrs dev/day → 20 min manager**",
-            "Statistics module: data loss reduced by **4x**",
-            "Corporate portal automation: **3 hrs → 10 min per week**",
+            " В контексте BubbleTea TUI спроектировал State Machine для переключения между экранами. Применил принцип Dependency Injection, чтc позволило подключать различные провайдеры хранилищ без изменения логики интерфейса.",
+            "Спроектировал и реализовал слой безопасности приложения, использовав алгоритм Argon2id. Реализовал шифрование базы данных по стандарту AES-256. Применил практики минимизации времени хранения открытых секретов в оперативной памяти.",
+            "Разработал высокопроизводительный модуль интеграции с S3-совместимыми объектными хранилищами, обеспечив надежную синхронизацию зашифрованных данных между локальным клиентом и облаком.",
+            "Реализовал механизм безопасного управления конфигурационными секретами, интегрировав приложение с системными хранилищами ОС (Linux Secret Service), что позволило полностью отказаться от хранения чувствительных данных в открытом виде.",
+            "Интегрировал инструмент golangci-lint, настроив более 15 линтеров. Это позволило на ранних этапах выявлять потенциальные утечки ресурсов, ошибки типизации и некорректное использование конкурентности.",
         ],
-        tags: [
-            { name: "React", primary: true },
-            { name: "TypeScript", primary: true },
-            { name: "Next.js" },
-            { name: "Tailwind" },
-            { name: "Jest" },
+        stack: [
+            { name: "Golang" },
+            { name: "BubbleTea" },
+            { name: "log/slog" },
+            { name: "S3" },
+            { name: "Linux" },
         ],
     },
     {
-        role: "Frontend Developer",
-        company: "AdTech company",
-        period: "2022 — Present",
-        duration: "1 yr. 7 mo.",
-        description: "Advertising solutions for web, mobile, and Smart TV.",
+        name: "Курсовой проект «Rose Bank»",
         achievements: [
-            "Automated product generation: **4 hrs dev/day → 20 min manager**",
-            "Statistics module: data loss reduced by **4x**",
-            "Corporate portal automation: **3 hrs → 10 min per week**",
+            "Спроектировал и реализовал REST API на базе Gin и пула БД соединений pgx. Вынес сложные транзакционные процессы на уровень хранимых процедур PostgreSQL.",
+            "Обеспечил безопасное хранение учетных данных в базе, внедрив хеширование паролей с помощью bcrypt. Написал middleware для фреймворка Gin, которые осуществляют строгий ролевой контроль доступа (RBAC).",
+            "Разработал модуль автоматических E-mail уведомлений с использованием стандартного пакета net/smtp, который отвечает за рассылку сгенерированных паролей новым клиентам и оповещения безопасности при входе          сотрудников в систему.",
+            "Реализовал надежный механизм создания бэкапов базы данных из Go-приложения, используя пакет os/exec для вызова утилиты pg_dump. Разработал фоновый планировщик на базе time.Ticker и горутин для автоматического           запуска резервного копирования.",
+            "Настроил надежную обработку входящих HTTP-запросов со строгой валидацией JSON-структур на стороне сервера. Сконфигурировал CORS-политики для клиент-серверного взаимодействия. Написал оптимизированный            Dockerfile с Multi-stage build.",
         ],
-        tags: [
-            { name: "React", primary: true },
-            { name: "TypeScript", primary: true },
-            { name: "Next.js" },
-            { name: "Tailwind" },
-            { name: "Jest" },
+        stack: [
+            { name: "Golang" },
+            { name: "GIN" },
+            { name: "PostgreSQL" },
+            { name: "TypeScript" },
+            { name: "Docker" },
+            { name: "Docker Compose" },
+            { name: "Bash" },
         ],
     },
     {
-        role: "Frontend Developer",
-        company: "AdTech company",
-        period: "2022 — Present",
-        duration: "1 yr. 7 mo.",
-        description: "Advertising solutions for web, mobile, and Smart TV.",
+        name: 'Хакатон НовГУ в сотрудничестве с АО "Корпорация Сплав" – призер (3 место)',
         achievements: [
-            "Automated product generation: **4 hrs dev/day → 20 min manager**",
-            "Statistics module: data loss reduced by **4x**",
-            "Corporate portal automation: **3 hrs → 10 min per week**",
+            "Реализовал API Gateway, который агрегирует данные из БД, формирует строгий JSON-контракт и отправляет его нашему AI-агенту.",
+            "Спроектировал и внедрил PostgreSQL и написал оптимизированные SQL-запросы, которые собирают контекст для AI-агента: агрегируют историю сообщений текущего чата и список метаданных загруженных файлов пользователя.",
+            "Реализовал потоковую загрузку файлов (PDF, Word, RTF). Одной из сложнейших задач стало исправление кодировки имен файлов: вручную реализовал перекодирование из Latin-1 в UTF-8 на уровне буферов Node.js.",
+            "Реализовал механизм динамической сборки System Prompt. В зависимости от состояния бизнес-флагов (например, separate_conflicts), бэкенд на лету модифицирует инструкции для AI-агента, внедряя в них правила обработки противоречий, список доступных файлов и специфические требования к формату ответа (Markdown + HTML).",
         ],
-        tags: [
-            { name: "React", primary: true },
-            { name: "TypeScript", primary: true },
-            { name: "Next.js" },
-            { name: "Tailwind" },
-            { name: "Jest" },
+        stack: [
+            { name: "TypeScript" },
+            { name: "NodeJS" },
+            { name: "Express" },
+            { name: "Python" },
+            { name: "FastAPI" },
+            { name: "PostgreSQL" },
+            { name: "Docker" },
+            { name: "Docker Compose" },
+            { name: "Nginx" },
         ],
+    },
+];
+
+const education = [
+    {
+        institution:
+            "Новгородский государственный университет им. Ярослава Мудрого",
+        city: "Великий Новгород",
+        faculty: "Институт электронных и информационных систем",
+        specialty: "Информатика и вычислительная техника",
+        period: "2022 — 2027",
     },
 ];
 ---
@@ -123,28 +171,17 @@ const experience: Job[] = [
     <header class="header">
         <h1>Распопов Степан</h1>
         <p>Golang Backend Developer</p>
-        <div style="margin-top: 1rem;">
-            <a
-                href="mailto:email@example.com"
-                style="color: var(--bg-beige); margin: 0 10px;">Email</a
+        <div class="contact-links">
+            <a href="tel:+79808559409">+79808559409</a>
+            <a href="mailto:stepan.raspopov.ig@gmail.com"
+                >stepan.raspopov.ig@gmail.com</a
             >
-            <a
-                href="https://github.com"
-                style="color: var(--bg-beige); margin: 0 10px;">GitHub</a
-            >
+            <a href="https://github.com/stepan41k" target="_blank">GitHub</a>
+            <a href="https://t.me/stepanigorevichr" target="_blank">Telegram</a>
         </div>
     </header>
 
     <container>
-        <section>
-            <h2>О себе</h2>
-            <p>
-                Увлеченный разработчик с фокусом на чистоту кода и
-                производительность. Люблю работать с современными стеками и
-                создавать удобные интерфейсы.
-            </p>
-        </section>
-
         <section>
             <h2>Навыки</h2>
             <div>
@@ -153,20 +190,13 @@ const experience: Job[] = [
         </section>
 
         <section>
-            <h2>Experience</h2>
+            <h2>Достижения</h2>
             {
                 experience.map((job) => (
                     <div class="job-card">
                         <div class="job-header">
-                            <span class="role">{job.role}</span>
-                            <span class="duration-pill">{job.duration}</span>
+                            <span class="role">{job.name}</span>
                         </div>
-
-                        <p class="company-desc">
-                            <i>
-                                {job.company}, {job.description}
-                            </i>
-                        </p>
 
                         <ul class="achievement-list">
                             {job.achievements.map((item) => (
@@ -181,7 +211,7 @@ const experience: Job[] = [
                         </ul>
 
                         <div class="tag-container">
-                            {job.tags.map((tag) => (
+                            {job.stack.map((tag) => (
                                 <span
                                     class={`tag ${tag.primary ? "primary" : ""}`}
                                 >
@@ -195,8 +225,84 @@ const experience: Job[] = [
         </section>
 
         <section>
-            <h2>Образование</h2>
-            <p>МГТУ им. Баумана, Информационные технологии, 2020г.</p>
+            <h2 class="section-title">Образование</h2>
+            {
+                education.map((edu) => (
+                    <div class="interactive-card education-grid">
+                        <div class="card-period">{edu.period}</div>
+                        <div class="card-content">
+                            <h3>{edu.institution}</h3>
+                            <p class="location">{edu.city}</p>
+                            <p class="details">
+                                {edu.faculty}, {edu.specialty}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </section>
+
+        <section>
+            <h2 class="section-title">О себе</h2>
+            <div class="interactive-card about-box">
+                <p>
+                    Разрабатываю backend-сервисы на <b>Go</b>. Работаю с построением
+                    <div class="has-details">
+                        асинхронных пайплайнов
+                        <ul class="details-popup">
+                            <li>Kafka</li>
+                            <li>NATS</li>
+                            <li>RabbitMQ</li>
+                        </ul>
+                    </div>
+                    и идемпотентной обработкой. Настраиваю
+                    <div class="has-details">
+                        Observability
+                        <ul class="details-popup">
+                            <li>Graylog</li>
+                            <li>Prometheus</li>
+                            <li>VicrotiaMetrics</li>
+                            <li>Grafana</li>
+                            <li>OpenTelemetry</li>
+                            <li>Jaeger</li>
+                        </ul>
+                    </div>
+                    и логирование,
+                    выстраиваю CI/CD пайплайны. Покрываю написанный код юнит, интеграционными,
+                    e2e, нагрузочными тестами. В свободное время интересуюсь
+                    <div class="has-details">
+                        DevOps
+                        <ul class="details-popup">
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>Helm</li>
+                            <li>Terraform</li>
+                            <li>Ansible</li>
+                        </ul>
+                    </div>
+                    и сетевой инженерией, немного изучаю
+                    <div class="has-details">
+                        Frontend
+                        <ul class="details-popup">
+                            <li>TypeScript</li>
+                            <li>React</li>
+                            <li>Vue</li>
+                        </ul>
+                    </div>
+                    ,
+                    а также интересуюсь и практикуюсь в
+                    <div class="has-details">
+                        Linux
+                        <ul class="details-popup">
+                            <li>bash</li>
+                            <li>systemd</li>
+                            <li>htop</li>
+                            <li>wireshark</li>
+                            <li>strace</li>
+                        </ul>
+                    </div>. 
+                </p>
+            </div>
         </section>
     </container>
 </Layout>
