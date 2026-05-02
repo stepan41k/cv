@@ -1,74 +1,202 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-// Данные можно вынести в отдельный файл, но для начала оставим тут
-const skills: string[] = ["TypeScript", "Astro", "React", "Node.js", "CSS/Tailwind", "Git"];
+const skills: string[] = [
+    "TypeScript",
+    "Astro",
+    "React",
+    "Node.js",
+    "CSS/Tailwind",
+    "Git",
+];
 
 interface Job {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
+    role: string;
+    company: string;
+    period: string;
+    duration: string; // "1 yr. 7 mo."
+    description: string;
+    achievements: string[];
+    tags: { name: string; primary?: boolean }[];
 }
 
 const experience: Job[] = [
-  {
-    company: "Green Tech Inc.",
-    role: "Senior Frontend Developer",
-    period: "2022 — Наст. время",
-    description: "Разработка эко-системы приложений на React и TypeScript."
-  },
-  {
-    company: "Beige Solutions",
-    role: "Junior Developer",
-    period: "2020 — 2022",
-    description: "Верстка и поддержка сайтов на различных CMS."
-  }
+    {
+        role: "Frontend Developer",
+        company: "AdTech company",
+        period: "2022 — Present",
+        duration: "1 yr. 7 mo.",
+        description: "Advertising solutions for web, mobile, and Smart TV.",
+        achievements: [
+            "Automated product generation: **4 hrs dev/day → 20 min manager**",
+            "Statistics module: data loss reduced by **4x**",
+            "Corporate portal automation: **3 hrs → 10 min per week**",
+        ],
+        tags: [
+            { name: "React", primary: true },
+            { name: "TypeScript", primary: true },
+            { name: "Next.js" },
+            { name: "Tailwind" },
+            { name: "Jest" },
+        ],
+    },
+    {
+        role: "Frontend Developer",
+        company: "AdTech company",
+        period: "2022 — Present",
+        duration: "1 yr. 7 mo.",
+        description: "Advertising solutions for web, mobile, and Smart TV.",
+        achievements: [
+            "Automated product generation: **4 hrs dev/day → 20 min manager**",
+            "Statistics module: data loss reduced by **4x**",
+            "Corporate portal automation: **3 hrs → 10 min per week**",
+        ],
+        tags: [
+            { name: "React", primary: true },
+            { name: "TypeScript", primary: true },
+            { name: "Next.js" },
+            { name: "Tailwind" },
+            { name: "Jest" },
+        ],
+    },
+    {
+        role: "Frontend Developer",
+        company: "AdTech company",
+        period: "2022 — Present",
+        duration: "1 yr. 7 mo.",
+        description: "Advertising solutions for web, mobile, and Smart TV.",
+        achievements: [
+            "Automated product generation: **4 hrs dev/day → 20 min manager**",
+            "Statistics module: data loss reduced by **4x**",
+            "Corporate portal automation: **3 hrs → 10 min per week**",
+        ],
+        tags: [
+            { name: "React", primary: true },
+            { name: "TypeScript", primary: true },
+            { name: "Next.js" },
+            { name: "Tailwind" },
+            { name: "Jest" },
+        ],
+    },
+    {
+        role: "Frontend Developer",
+        company: "AdTech company",
+        period: "2022 — Present",
+        duration: "1 yr. 7 mo.",
+        description: "Advertising solutions for web, mobile, and Smart TV.",
+        achievements: [
+            "Automated product generation: **4 hrs dev/day → 20 min manager**",
+            "Statistics module: data loss reduced by **4x**",
+            "Corporate portal automation: **3 hrs → 10 min per week**",
+        ],
+        tags: [
+            { name: "React", primary: true },
+            { name: "TypeScript", primary: true },
+            { name: "Next.js" },
+            { name: "Tailwind" },
+            { name: "Jest" },
+        ],
+    },
+    {
+        role: "Frontend Developer",
+        company: "AdTech company",
+        period: "2022 — Present",
+        duration: "1 yr. 7 mo.",
+        description: "Advertising solutions for web, mobile, and Smart TV.",
+        achievements: [
+            "Automated product generation: **4 hrs dev/day → 20 min manager**",
+            "Statistics module: data loss reduced by **4x**",
+            "Corporate portal automation: **3 hrs → 10 min per week**",
+        ],
+        tags: [
+            { name: "React", primary: true },
+            { name: "TypeScript", primary: true },
+            { name: "Next.js" },
+            { name: "Tailwind" },
+            { name: "Jest" },
+        ],
+    },
 ];
 ---
 
-<Layout title="Мое CV | Frontend Developer">
-	<header class="header">
-		<h1>Иван Иванов</h1>
-		<p>TypeScript Frontend Developer</p>
-    <div style="margin-top: 1rem;">
-      <a href="mailto:email@example.com" style="color: var(--bg-beige); margin: 0 10px;">Email</a>
-      <a href="https://github.com" style="color: var(--bg-beige); margin: 0 10px;">GitHub</a>
-    </div>
-	</header>
+<Layout title="Golang Backend Developer">
+    <header class="header">
+        <h1>Распопов Степан</h1>
+        <p>Golang Backend Developer</p>
+        <div style="margin-top: 1rem;">
+            <a
+                href="mailto:email@example.com"
+                style="color: var(--bg-beige); margin: 0 10px;">Email</a
+            >
+            <a
+                href="https://github.com"
+                style="color: var(--bg-beige); margin: 0 10px;">GitHub</a
+            >
+        </div>
+    </header>
 
-	<container>
-		<section>
-			<h2>О себе</h2>
-			<p>
-				Увлеченный разработчик с фокусом на чистоту кода и производительность. 
-        Люблю работать с современными стеками и создавать удобные интерфейсы.
-			</p>
-		</section>
+    <container>
+        <section>
+            <h2>О себе</h2>
+            <p>
+                Увлеченный разработчик с фокусом на чистоту кода и
+                производительность. Люблю работать с современными стеками и
+                создавать удобные интерфейсы.
+            </p>
+        </section>
 
-		<section>
-			<h2>Навыки</h2>
-			<div>
-				{skills.map(skill => (
-					<span class="badge">{skill}</span>
-				))}
-			</div>
-		</section>
+        <section>
+            <h2>Навыки</h2>
+            <div>
+                {skills.map((skill) => <span class="badge">{skill}</span>)}
+            </div>
+        </section>
 
-		<section>
-			<h2>Опыт работы</h2>
-			{experience.map(job => (
-				<div class="experience-item">
-					<h3 style="margin: 0;">{job.role}</h3>
-					<p style="font-weight: bold; color: var(--accent-green); margin: 0.2rem 0;">{job.company} | {job.period}</p>
-					<p>{job.description}</p>
-				</div>
-			))}
-		</section>
+        <section>
+            <h2>Experience</h2>
+            {
+                experience.map((job) => (
+                    <div class="job-card">
+                        <div class="job-header">
+                            <span class="role">{job.role}</span>
+                            <span class="duration-pill">{job.duration}</span>
+                        </div>
 
-    <section>
-      <h2>Образование</h2>
-      <p>МГТУ им. Баумана, Информационные технологии, 2020г.</p>
-    </section>
-	</container>
+                        <p class="company-desc">
+                            <i>
+                                {job.company}, {job.description}
+                            </i>
+                        </p>
+
+                        <ul class="achievement-list">
+                            {job.achievements.map((item) => (
+                                <li
+                                    class="achievement-item"
+                                    set:html={item.replace(
+                                        /\*\*(.*?)\*\*/g,
+                                        "<b>$1</b>",
+                                    )}
+                                />
+                            ))}
+                        </ul>
+
+                        <div class="tag-container">
+                            {job.tags.map((tag) => (
+                                <span
+                                    class={`tag ${tag.primary ? "primary" : ""}`}
+                                >
+                                    {tag.name}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                ))
+            }
+        </section>
+
+        <section>
+            <h2>Образование</h2>
+            <p>МГТУ им. Баумана, Информационные технологии, 2020г.</p>
+        </section>
+    </container>
 </Layout>
