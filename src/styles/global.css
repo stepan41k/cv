@@ -1,9 +1,9 @@
 :root {
-  --bg-beige: #f5f5dc;
-  --dark-green: #1a2e1a;
-  --accent-green: #2d5a27;
-  --text-main: #1a2e1a;
-  --text-light: #f5f5dc;
+  --bg-beige: #ffffff;
+  --dark-green: #006633;
+  --accent-green: #0A5F38;  /* color for cards */
+  --text-main: #006633;     /* main text */
+  --text-light: #ffffff;
   --card-bg: #ffffff;
 }
 
@@ -63,4 +63,97 @@ h1, h2, h3 {
   padding-left: 1.5rem;
   margin-bottom: 2rem;
   position: relative;
+}
+
+/* Карточка работы */
+.job-card {
+  margin-bottom: 3rem;
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.role {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #666; /* Серый как на скрине или var(--dark-green) */
+}
+
+/* Оранжевая плашка с длительностью */
+.duration-pill {
+  background-color: #fff0e6; /* Очень светло-оранжевый */
+  color: #d97706; /* Оранжево-коричневый */
+  padding: 2px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid #fadbc8;
+}
+
+.company-desc {
+  color: #777;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Список достижений */
+.achievement-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.achievement-item {
+  position: relative;
+  padding: 10px 0 10px 25px;
+  border-bottom: 1px solid #eee; /* Тонкая линия разделитель */
+  color: #333;
+  font-size: 1rem;
+}
+
+.achievement-item:last-child {
+  border-bottom: none;
+}
+
+/* Кастомный маркер (точка) */
+.achievement-item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #d97706; /* Цвет маркера со скрина */
+  font-size: 1.5rem;
+  line-height: 1;
+  top: 8px;
+}
+
+.achievement-item b {
+  font-weight: 600;
+  color: #111;
+}
+
+/* Теги технологий */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background-color: #f3f3f1; /* Светло-бежевый */
+  border: 1px solid #e5e5e2;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: 'Courier New', Courier, monospace; /* Моноширинный шрифт */
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Синие теги для основных навыков */
+.tag.primary {
+  background-color: #eff6ff;
+  border-color: #dbeafe;
+  color: #2563eb;
 }
