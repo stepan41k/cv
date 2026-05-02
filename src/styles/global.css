@@ -1,159 +1,380 @@
 :root {
-  --bg-beige: #ffffff;
-  --dark-green: #006633;
-  --accent-green: #0A5F38;  /* color for cards */
-  --text-main: #006633;     /* main text */
-  --text-light: #ffffff;
-  --card-bg: #ffffff;
+    --bg-beige: #ffffff;
+    --main-blue: #3080DE;
+    --accent-blue: #2172D2;
+    --light-blue: #64A0E6;
+    --text-main: #3080DE;
+    --text-light: #ffffff;
+    --card-bg: #ffffff;
 }
 
 body {
-  background-color: var(--bg-beige);
-  color: var(--text-main);
-  font-family: 'Inter', system-ui, sans-serif;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+    background-color: var(--bg-beige);
+    color: var(--text-main);
+    font-family: "Inter", system-ui, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-  display: block;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: block;
 }
 
 section {
-  margin-bottom: 3rem;
+    color: #333;
+    margin-bottom: 3rem;
 }
 
-h1, h2, h3 {
-  color: var(--dark-green);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+h1,
+h2,
+h3 {
+    color: var(--main-blue);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .header {
-  background-color: var(--dark-green);
-  color: var(--text-light);
-  padding: 4rem 2rem;
-  text-align: center;
-  border-radius: 0 0 20px 20px;
+    background-color: var(--main-blue);
+    color: var(--text-light);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
 }
 
 .header h1 {
-  color: var(--text-light);
-  margin: 0;
-  font-size: 2.5rem;
+    color: var(--text-light);
+    margin: 0;
+    font-size: 2.5rem;
 }
 
 .badge {
-  display: inline-block;
-  background: var(--accent-green);
-  color: white;
-  padding: 0.2rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+    display: inline-block;
+    background: #fff;
+    border-color: var(--main-blue);
+    border: 1px solid var(--main-blue);
+    color: #333;
+    padding: 0.2rem 0.8rem;
+    border-radius: 15px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.badge:hover {
+    background-color: var(--accent-blue);
+    color: var(--bg-beige);
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .experience-item {
-  border-left: 2px solid var(--dark-green);
-  padding-left: 1.5rem;
-  margin-bottom: 2rem;
-  position: relative;
+    border-left: 2px solid var(--main-blue);
+    padding-left: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
 }
 
 /* Карточка работы */
 .job-card {
-  margin-bottom: 3rem;
+    margin-bottom: 3rem;
 }
 
 .job-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
 }
 
 .role {
-  font-size: 1.2rem;
-  font-style: italic;
-  color: #666; /* Серый как на скрине или var(--dark-green) */
-}
-
-/* Оранжевая плашка с длительностью */
-.duration-pill {
-  background-color: #fff0e6; /* Очень светло-оранжевый */
-  color: #d97706; /* Оранжево-коричневый */
-  padding: 2px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  border: 1px solid #fadbc8;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #666; /* Серый как на скрине или var(--main-blue) */
 }
 
 .company-desc {
-  color: #777;
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+    color: #777;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
 }
 
 /* Список достижений */
 .achievement-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
 }
 
 .achievement-item {
-  position: relative;
-  padding: 10px 0 10px 25px;
-  border-bottom: 1px solid #eee; /* Тонкая линия разделитель */
-  color: #333;
-  font-size: 1rem;
+    position: relative;
+    padding: 10px 0 10px 25px;
+    border-bottom: 1px solid #eee; /* Тонкая линия разделитель */
+    color: #333;
+    font-size: 1rem;
 }
 
 .achievement-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 /* Кастомный маркер (точка) */
 .achievement-item::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: #d97706; /* Цвет маркера со скрина */
-  font-size: 1.5rem;
-  line-height: 1;
-  top: 8px;
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-size: 1.5rem;
+    line-height: 1;
+    top: 8px;
 }
 
 .achievement-item b {
-  font-weight: 600;
-  color: #111;
+    font-weight: 600;
+    color: #111;
 }
 
 /* Теги технологий */
 .tag-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .tag {
-  background-color: #f3f3f1; /* Светло-бежевый */
-  border: 1px solid #e5e5e2;
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-family: 'Courier New', Courier, monospace; /* Моноширинный шрифт */
-  font-size: 0.85rem;
-  color: #555;
+    background-color: #f3f3f1;
+    border: 1px solid #e5e5e2;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.85rem;
+    color: #555;
+
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    display: inline-block;
 }
 
-/* Синие теги для основных навыков */
-.tag.primary {
-  background-color: #eff6ff;
-  border-color: #dbeafe;
-  color: #2563eb;
+.tag:hover {
+    background-color: var(--accent-blue);
+    color: var(--bg-beige);
+    border-color: var(--accent-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.interactive-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.3); /* Полупрозрачный фон */
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow:visible !important;
+  z-index: 1;
+}
+
+.interactive-card:hover {
+  background: #ffffff;
+  border-color: var(--accent-blue);
+  box-shadow: 0 10px 30px rgba(26, 46, 26, 0.05);
+  transform: translateX(5px); /* Легкий сдвиг вправо */
+}
+
+/* Сетка для образования */
+.education-grid {
+  display: grid;
+  grid-template-columns: 150px 1fr; /* Колонка под дату и под текст */
+  gap: 2rem;
+}
+
+@media (max-width: 600px) {
+  .education-grid {
+    grid-template-columns: 1fr; /* На мобилках в одну колонку */
+    gap: 0.5rem;
+  }
+}
+
+.card-period {
+  font-weight: 600;
+  color: var(--accent-blue);
+  font-size: 0.9rem;
+  padding-top: 4px;
+}
+
+.card-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--main-blue);
+}
+
+.location {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.details {
+  margin-top: 0.5rem;
+  color: #444;
+}
+
+.speciality {
+  margin-top: 0cm;
+  color: #444;
+}
+
+.about-box p {
+  margin: 0;
+  line-height: 1.8;
+  color: #333;
+}
+
+.highlight {
+  background: #e8f0e8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--main-blue);
+  font-weight: 500;
+}
+
+b {
+  color: var(--main-blue);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.section-title::after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent-blue), transparent);
+  opacity: 0.3;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top:20px;
+}
+
+.contact-links a {
+    display: inline-block;
+    text-decoration: underline;
+    color: var(--text-light);
+    transition: transform 0.2s ease;
+    font-size: 0.95rem;
+}
+
+.contact-links a:hover {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+
+/* Контейнер для слова с деталями */
+.has-details {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: var(--main-blue);
+  font-weight: 600; 
+  line-height: 1;
+}
+
+/* Скрытое облако (тултип) */
+.details-popup {
+  position: absolute;
+  bottom: 120%; /* Появляется над словом */
+  left: 50%;
+  transform: translateX(-50%) translateY(10px); /* Начальное смещение для анимации */
+  
+  width: max-content;
+  min-width: 150px;
+  background: var(--light-blue);
+  color: var(--bg-beige);
+  
+  padding: 12px 16px;
+  border-radius: 8px;
+  list-style: none;
+  margin: 0;
+  
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none; /* Чтобы не мешал курсору в скрытом виде */
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 10000;
+  min-width: 180px;
+  white-space: nowrap;
+}
+
+/* Маленький треугольник-стрелка снизу облака */
+.details-popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: var(--main-blue) transparent transparent transparent;
+}
+
+/* Пункты списка внутри облака */
+.details-popup li {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.details-popup li::before {
+  content: '*';
+  margin-right: 8px;
+  color: var(--accent-blue);
+  font-size: 0.7rem;
+}
+
+.details-popup li:last-child {
+  margin-bottom: 0;
+}
+
+/* Эффект при наведении */
+.has-details:hover .details-popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); /* Плавно "всплывает" на место */
+}
+
+/* Чтобы на мобилках не ломалось */
+@media (max-width: 600px) {
+  .details-popup {
+    left: 0;
+    transform: translateY(10px);
+  }
+  .has-details:hover .details-popup {
+    transform: translateY(0);
+  }
+  .details-popup::after {
+    left: 20%;
+  }
 }
