@@ -75,10 +75,10 @@ h3 {
     display: inline-block;
     background: #fff;
     border-color: var(--main-blue);
-    border: 1px solid var(--main-blue);
+    border: 1.5px solid var(--main-blue);
     color: #333;
     padding: 0.2rem 0.8rem;
-    border-radius: 15px;
+    border-radius: 14px;
     font-family: "Courier New", Courier, monospace;
     font-size: 0.85rem;
     margin-right: 0.5rem;
