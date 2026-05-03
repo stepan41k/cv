@@ -6,6 +6,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "clear-css": "postcss src/styles/global.css -o dist/global.css",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -13,5 +14,9 @@
   },
   "dependencies": {
     "astro": "^6.1.10"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "postcss-cli": "^11.0.1"
   }
 }
