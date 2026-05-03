@@ -167,7 +167,11 @@ const education = [
 ];
 ---
 
-<Layout title="Golang Backend Developer">
+<Layout title="CV">
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+      
     <header class="header">
         <h1>Распопов Степан</h1>
         <p>Golang Backend Developer</p>
@@ -180,8 +184,14 @@ const education = [
         </div>
 
         <div class="contact-links">
-            <span class="contact-item">+79808559409</span>
-            <span class="contact-item">stepan.raspopov.ig@gmail.com</span>
+            <span class="contact-item copyable" data-copy="+79808559409">
+                +79808559409
+                <span class="tooltip">Скопировано!</span>
+            </span>
+            <span class="contact-item copyable" data-copy="stepan.raspopov.ig@gmail.com">
+                stepan.raspopov.ig@gmail.com
+                <span class="tooltip">Скопировано!</span>
+            </span>
             <a href="https://github.com/stepan41k" target="_blank">GitHub</a>
             <a href="https://t.me/stepanigorevichr" target="_blank">Telegram</a>
         </div>
@@ -313,4 +323,15 @@ const education = [
             </div>
         </section>
     </container>
+
+    <script>
+        import {
+            initProgressBar,
+            initClickToCopy
+        } from '../scripts/script';
+        
+        initProgressBar();
+        initClickToCopy();
+      </script>
+    
 </Layout>
