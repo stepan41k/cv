@@ -500,3 +500,65 @@ a.contact-item {
   visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
+
+.lang-switcher {
+  position: fixed; 
+  top: 25px;
+  right: 25px;
+  display: flex;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px); 
+  padding: 4px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  z-index: 10000;
+  transition: all 0.3s ease;
+}
+
+.lang-switcher:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.6;
+}
+
+.lang-btn.active {
+  opacity: 1;
+  background: #2563eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn:not(.active):hover {
+  opacity: 0.9;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 600px) {
+  .lang-switcher {
+    top: 15px;
+    right: 15px;
+  }
+  .lang-btn {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+  }
+}
+
+.role[data-key="role"] {
+  color: rgba(255, 255, 255, 0.8) !important; /* Светло-серый/белый с прозрачностью */
+  font-style: italic;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
