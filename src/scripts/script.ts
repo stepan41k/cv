@@ -1,3 +1,37 @@
+import { translations } from './languages';
+
+export function initLanguageSwitcher() {
+  const ruBtn = document.getElementById('lang-ru');
+  const enBtn = document.getElementById('lang-en');
+  const elements = document.querySelectorAll<HTMLElement>('[data-key]');
+  
+  let currentLang: 'ru' | 'en' = 'ru';
+
+  const switchLang = (newLang: 'ru' | 'en') => {
+    if (currentLang === newLang) return;
+
+    elements.forEach(el => el.classList.add('switching'));
+
+    setTimeout(() => {
+      elements.forEach(el => {
+        const key = el.getAttribute('data-key') as keyof typeof translations.ru;
+        if (translations[newLang][key]) {
+          el.innerText = translations[newLang][key];
+        }
+      });
+
+      ruBtn?.classList.toggle('active');
+      enBtn?.classList.toggle('active');
+      currentLang = newLang;
+
+      elements.forEach(el => el.classList.remove('switching'));
+    }, 300);
+  };
+
+  ruBtn?.addEventListener('click', () => switchLang('ru'));
+  enBtn?.addEventListener('click', () => switchLang('en'));
+}
+
 export function initProgressBar() {
   const bar = document.getElementById('progress-bar');
   if (!bar) return;
