@@ -175,13 +175,19 @@ const education = [
       </div>
       
     <header class="header">
-        <h1>Распопов Степан</h1>
-        <p>Golang Backend Developer</p>
+        <div class="lang-switcher">
+          <button id="lang-ru" class="lang-btn active">RU</button>
+          <div class="lang-divider"></div>
+          <button id="lang-en" class="lang-btn">EN</button>
+        </div>
+        
+        <h1 data-key="name">Распопов Степан</h1>
+        <p class="role" data-key="role">Golang Backend Developer</p>
 
         <div class="status-container">
             <div class="status-badge">
                 <span class="status-dot"></span>
-                <span class="status-text">Открыт к предложениям</span>
+                <span class="status-text" data-key="status">Открыт к предложениям</span>
             </div>
         </div>
 
@@ -201,14 +207,14 @@ const education = [
 
     <container>
         <section>
-            <h2>Навыки</h2>
+            <h2 class="section-title" data-key="skills">Навыки</h2>
             <div>
                 {skills.map((skill) => <span class="badge">{skill}</span>)}
             </div>
         </section>
 
         <section>
-            <h2>Достижения</h2>
+            <h2 data-key="achievements">Достижения</h2>
             {
                 experience.map((job) => (
                     <div class="job-card">
@@ -243,16 +249,17 @@ const education = [
         </section>
 
         <section>
-            <h2 class="section-title">Образование</h2>
+            <h2 class="section-title" data-key="education">Образование</h2>
             {
                 education.map((edu) => (
                     <div class="interactive-card education-grid">
-                        <div class="card-period">{edu.period}</div>
+                        <div class="card-period" data-key="eduPeriod">{edu.period}</div>
                         <div class="card-content">
-                            <h3>{edu.institution}</h3>
-                            <p class="location">{edu.city}</p>
+                            <h3 data-key="eduInstitution">{edu.institution}</h3>
+                            <p class="location" data-key="eduCity">{edu.city}</p>
                             <p class="details">
-                                {edu.faculty}, {edu.specialty}
+                                <span data-key="eduFaculty">{edu.faculty}</span>, 
+                                <span data-key="eduSpecialty">{edu.specialty}</span>
                             </p>
                         </div>
                     </div>
@@ -261,9 +268,9 @@ const education = [
         </section>
 
         <section>
-            <h2 class="section-title">О себе</h2>
-            <div class="interactive-card about-box">
-                <p>
+            <h2 class="section-title" data-key="about">О себе</h2>
+            <div class="interactive-card about-box" >
+                <div data-key="aboutFullText">
                     Разрабатываю backend-сервисы на <b>Go</b>. Работаю с
                     построением
                     <div class="has-details">
@@ -321,7 +328,7 @@ const education = [
                             <li>strace</li>
                         </ul>
                     </div>.
-                </p>
+                </div>
             </div>
         </section>
     </container>
@@ -329,9 +336,11 @@ const education = [
     <script>
         import {
             initProgressBar,
-            initClickToCopy
+            initClickToCopy,
+            initLanguageSwitcher,
         } from '../scripts/script';
-        
+
+        initLanguageSwitcher();
         initProgressBar();
         initClickToCopy();
       </script>
