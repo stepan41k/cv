@@ -253,12 +253,13 @@ const education = [
             {
                 education.map((edu) => (
                     <div class="interactive-card education-grid">
-                        <div class="card-period">{edu.period}</div>
+                        <div class="card-period" data-key="eduPeriod">{edu.period}</div>
                         <div class="card-content">
-                            <h3>{edu.institution}</h3>
-                            <p class="location">{edu.city}</p>
+                            <h3 data-key="eduInstitution">{edu.institution}</h3>
+                            <p class="location" data-key="eduCity">{edu.city}</p>
                             <p class="details">
-                                {edu.faculty}, {edu.specialty}
+                                <span data-key="eduFaculty">{edu.faculty}</span>, 
+                                <span data-key="eduSpecialty">{edu.specialty}</span>
                             </p>
                         </div>
                     </div>
@@ -268,8 +269,8 @@ const education = [
 
         <section>
             <h2 class="section-title" data-key="about">О себе</h2>
-            <div class="interactive-card about-box">
-                <p>
+            <div class="interactive-card about-box" >
+                <div data-key="aboutFullText">
                     Разрабатываю backend-сервисы на <b>Go</b>. Работаю с
                     построением
                     <div class="has-details">
@@ -327,7 +328,7 @@ const education = [
                             <li>strace</li>
                         </ul>
                     </div>.
-                </p>
+                </div>
             </div>
         </section>
     </container>
