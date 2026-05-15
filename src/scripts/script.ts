@@ -1,67 +1,77 @@
-import { translations } from './languages';
+import { translations } from "./languages";
 
 export function initLanguageSwitcher() {
-  const ruBtn = document.getElementById('lang-ru');
-  const enBtn = document.getElementById('lang-en');
-  const elements = document.querySelectorAll<HTMLElement>('[data-key]');
-  
-  let currentLang: 'ru' | 'en' = 'ru';
+    const ruBtn = document.getElementById("lang-ru");
+    const enBtn = document.getElementById("lang-en");
+    const mainContainer = document.querySelector("container");
+    const elements = document.querySelectorAll<HTMLElement>("[data-key]");
 
-  const switchLang = (newLang: 'ru' | 'en') => {
-    if (currentLang === newLang) return;
+    let currentLang: "ru" | "en" = "ru";
 
-    elements.forEach(el => el.classList.add('switching'));
+    const switchLang = (newLang: "ru" | "en") => {
+        if (currentLang === newLang) return;
 
-    setTimeout(() => {
-      elements.forEach(el => {
-        const key = el.getAttribute('data-key') as keyof typeof translations.ru;
-        if (translations[newLang][key]) {
-          el.innerHTML = translations[newLang][key];
-        }
-      });
+         mainContainer.classList.add('is-switching');
+        
+        elements.forEach((el) => el.classList.add("switching"));
 
-      ruBtn?.classList.toggle('active');
-      enBtn?.classList.toggle('active');
-      currentLang = newLang;
+        setTimeout(() => {
+            elements.forEach((el) => {
+                const key = el.getAttribute(
+                    "data-key",
+                ) as keyof typeof translations.ru;
+                if (translations[newLang][key]) {
+                    el.innerHTML = translations[newLang][key];
+                }
+            });
 
-      elements.forEach(el => el.classList.remove('switching'));
-    }, 300);
-  };
+            ruBtn?.classList.toggle("active");
+            enBtn?.classList.toggle("active");
+            currentLang = newLang;
 
-  ruBtn?.addEventListener('click', () => switchLang('ru'));
-  enBtn?.addEventListener('click', () => switchLang('en'));
+            mainContainer.classList.remove('is-switching');
+        }, 300);
+    };
+
+    ruBtn?.addEventListener("click", () => switchLang("ru"));
+    enBtn?.addEventListener("click", () => switchLang("en"));
 }
 
 export function initProgressBar() {
-  const bar = document.getElementById('progress-bar');
-  if (!bar) return;
+    const bar = document.getElementById("progress-bar");
+    if (!bar) return;
 
-  window.addEventListener('scroll', () => {
-    const winScroll = document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    bar.style.width = scrolled + "%";
-  });
+    window.addEventListener("scroll", () => {
+        const winScroll = document.documentElement.scrollTop;
+        const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        bar.style.width = scrolled + "%";
+    });
 }
 
 export function initClickToCopy() {
-  const copyElements = document.querySelectorAll<HTMLElement>('.copyable');
+    const copyElements = document.querySelectorAll<HTMLElement>(".copyable");
 
-  copyElements.forEach((el) => {
-    el.addEventListener('click', () => {
-      const textToCopy = el.getAttribute('data-copy');
-      
-      if (textToCopy) {
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          el.classList.add('copied');
-          
-          setTimeout(() => {
-            el.classList.remove('copied');
-          }, 1400);
-        }).catch(err => {
-          console.error('Ошибка при копировании: ', err);
+    copyElements.forEach((el) => {
+        el.addEventListener("click", () => {
+            const textToCopy = el.getAttribute("data-copy");
+
+            if (textToCopy) {
+                navigator.clipboard
+                    .writeText(textToCopy)
+                    .then(() => {
+                        el.classList.add("copied");
+
+                        setTimeout(() => {
+                            el.classList.remove("copied");
+                        }, 1400);
+                    })
+                    .catch((err) => {
+                        console.error("Ошибка при копировании: ", err);
+                    });
+            }
         });
-      }
     });
-  });
 }
