@@ -562,3 +562,24 @@ a.contact-item {
   margin-top: 10px;
   font-size: 1.1rem;
 }
+
+
+
+container {
+  transition: filter 0.4s ease, opacity 0.4s ease;
+  will-change: filter, opacity; 
+}
+
+
+container.is-switching {
+  filter: brightness(1) blur(1px); 
+  opacity: 0.1;
+}
+
+[data-key] {
+  transition: transform 0.2s ease;
+}
+
+.is-switching [data-key] {
+  transform: translateY(5px); 
+}
