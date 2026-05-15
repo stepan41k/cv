@@ -16,7 +16,7 @@ export function initLanguageSwitcher() {
       elements.forEach(el => {
         const key = el.getAttribute('data-key') as keyof typeof translations.ru;
         if (translations[newLang][key]) {
-          el.innerText = translations[newLang][key];
+          el.innerHTML = translations[newLang][key];
         }
       });
 
