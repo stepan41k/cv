@@ -172,22 +172,24 @@ const education = [
 <Layout title="CV">
     <div id="progress-container">
         <div id="progress-bar"></div>
-      </div>
-      
+    </div>
+
     <header class="header">
         <div class="lang-switcher">
-          <button id="lang-ru" class="lang-btn active">RU</button>
-          <div class="lang-divider"></div>
-          <button id="lang-en" class="lang-btn">EN</button>
+            <button id="lang-ru" class="lang-btn active">RU</button>
+            <div class="lang-divider"></div>
+            <button id="lang-en" class="lang-btn">EN</button>
         </div>
-        
+
         <h1 data-key="name">Распопов Степан</h1>
         <p class="role" data-key="role">Golang Backend Developer</p>
 
         <div class="status-container">
             <div class="status-badge">
                 <span class="status-dot"></span>
-                <span class="status-text" data-key="status">Открыт к предложениям</span>
+                <span class="status-text" data-key="status"
+                    >Открыт к предложениям</span
+                >
             </div>
         </div>
 
@@ -196,7 +198,10 @@ const education = [
                 +79808559409
                 <span class="tooltip">Скопировано!</span>
             </span>
-            <span class="contact-item copyable" data-copy="stepan.raspopov.ig@gmail.com">
+            <span
+                class="contact-item copyable"
+                data-copy="stepan.raspopov.ig@gmail.com"
+            >
                 stepan.raspopov.ig@gmail.com
                 <span class="tooltip">Скопировано!</span>
             </span>
@@ -214,31 +219,28 @@ const education = [
         </section>
 
         <section>
-            <h2 data-key="achievements" data-key="achievementsFullText" >Достижения</h2>
+            <h2 data-key="achievementsTitle">Достижения</h2> 
             {
-                experience.map((job) => (
+                experience.map((job, index) => (
                     <div class="job-card">
                         <div class="job-header">
-                            <span class="role">{job.name}</span>
+                            <!-- Генерируем уникальный ключ: job_name_0, job_name_1 и т.д. -->
+                            <span class="role" data-key={`job_name_${index}`}>{job.name}</span>
                         </div>
-
-                        <ul class="achievement-list">
+        
+                        <!-- Генерируем уникальный ключ для списка: job_list_0, job_list_1... -->
+                        <ul class="achievement-list" data-key={`job_list_${index}`}>
                             {job.achievements.map((item) => (
                                 <li
                                     class="achievement-item"
-                                    set:html={item.replace(
-                                        /\*\*(.*?)\*\*/g,
-                                        "<b>$1</b>",
-                                    )}
+                                    set:html={item.replace(/\*\*(.*?)\*\*/g, "<b>$1</b>")}
                                 />
                             ))}
                         </ul>
-
+        
                         <div class="tag-container">
                             {job.stack.map((tag) => (
-                                <span
-                                    class={`tag ${tag.primary ? "primary" : ""}`}
-                                >
+                                <span class={`tag ${tag.primary ? "primary" : ""}`}>
                                     {tag.name}
                                 </span>
                             ))}
@@ -253,13 +255,20 @@ const education = [
             {
                 education.map((edu) => (
                     <div class="interactive-card education-grid">
-                        <div class="card-period" data-key="eduPeriod">{edu.period}</div>
+                        <div class="card-period" data-key="eduPeriod">
+                            {edu.period}
+                        </div>
                         <div class="card-content">
                             <h3 data-key="eduInstitution">{edu.institution}</h3>
-                            <p class="location" data-key="eduCity">{edu.city}</p>
+                            <p class="location" data-key="eduCity">
+                                {edu.city}
+                            </p>
                             <p class="details">
-                                <span data-key="eduFaculty">{edu.faculty}</span>, 
-                                <span data-key="eduSpecialty">{edu.specialty}</span>
+                                <span data-key="eduFaculty">{edu.faculty}</span>
+                                ,
+                                <span data-key="eduSpecialty">
+                                    {edu.specialty}
+                                </span>
                             </p>
                         </div>
                     </div>
@@ -269,7 +278,7 @@ const education = [
 
         <section>
             <h2 class="section-title" data-key="about">О себе</h2>
-            <div class="interactive-card about-box" >
+            <div class="interactive-card about-box">
                 <div data-key="aboutFullText">
                     Разрабатываю backend-сервисы на <b>Go</b>. Работаю с
                     построением
@@ -338,11 +347,10 @@ const education = [
             initProgressBar,
             initClickToCopy,
             initLanguageSwitcher,
-        } from '../scripts/script';
+        } from "../scripts/script";
 
         initLanguageSwitcher();
         initProgressBar();
         initClickToCopy();
-      </script>
-    
+    </script>
 </Layout>
