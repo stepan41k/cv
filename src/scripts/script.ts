@@ -11,8 +11,8 @@ export function initLanguageSwitcher() {
     const switchLang = (newLang: "ru" | "en") => {
         if (currentLang === newLang) return;
 
-        mainContainer?.classList.add("is-switching");
-
+         mainContainer?.classList.add('is-switching');
+        
         elements.forEach((el) => el.classList.add("switching"));
 
         setTimeout(() => {
@@ -29,8 +29,8 @@ export function initLanguageSwitcher() {
             enBtn?.classList.toggle("active");
             currentLang = newLang;
 
-            mainContainer?.classList.add("is-switching");
-        }, 300);
+            mainContainer?.classList.remove('is-switching');
+        }, 450);
     };
 
     ruBtn?.addEventListener("click", () => switchLang("ru"));
