@@ -81,14 +81,28 @@ export const translations = {
       <div class="has-details">
         Observability
         <ul class="details-popup">
-          <li>Prometheus</li>
-          <li>Grafana</li>
-          <li>Jaeger</li>
-          <li>VictoriaMetrics</li>
+        <li>Graylog</li>
+        <li>Prometheus</li>
+        <li>VicrotiaMetrics</li>
+        <li>Grafana</li>
+        <li>OpenTelemetry</li>
+        <li>Jaeger</li>
         </ul>
       </div>
       и логирование, выстраиваю CI/CD пайплайны. Покрываю написанный код юнит, интеграционными, e2e, нагрузочными тестами.
-      В свободное время интересуюсь <b>DevOps</b> и сетевой инженерией, немного изучаю
+      В свободное время интересуюсь
+      <div class="has-details">
+      DevOps
+      <ul class="details-popup">
+        <li>Docker</li>
+        <li>Kubernetes</li>
+        <li>Helm</li>
+        <li>Terraform</li>
+        <li>Ansible</li>
+        <li>Zabbix</li>
+    </ul>
+      </div>
+      и сетевой инженерией, немного изучаю
       <div class="has-details">
         Frontend
         <ul class="details-popup">
@@ -100,9 +114,12 @@ export const translations = {
       <div class="has-details">
         Linux
         <ul class="details-popup">
-          <li>Bash scripting</li>
-          <li>Systemd</li>
-          <li>Nginx / IP Tables</li>
+        <li>bash</li>
+        <li>systemd</li>
+        <li>htop</li>
+        <li>grep</li>
+        <li>wireshark</li>
+        <li>strace</li>
         </ul>
       </div>.
     `,
