@@ -169,7 +169,7 @@ const education = [
 ];
 ---
 
-<Layout title="CV">
+<Layout title="stepan41k-cv">
     <div id="progress-container">
         <div id="progress-bar"></div>
     </div>
@@ -219,7 +219,7 @@ const education = [
         </section>
 
         <section>
-            <h2 data-key="achievementsTitle">Достижения</h2> 
+            <h2 data-key="achievementsTitle">Достижения</h2>
             {
                 experience.map((job, index) => (
                     <div class="job-card">
@@ -227,7 +227,7 @@ const education = [
                             <!-- Генерируем уникальный ключ: job_name_0, job_name_1 и т.д. -->
                             <span class="role" data-key={`job_name_${index}`}>{job.name}</span>
                         </div>
-        
+
                         <!-- Генерируем уникальный ключ для списка: job_list_0, job_list_1... -->
                         <ul class="achievement-list" data-key={`job_list_${index}`}>
                             {job.achievements.map((item) => (
@@ -237,7 +237,7 @@ const education = [
                                 />
                             ))}
                         </ul>
-        
+
                         <div class="tag-container">
                             {job.stack.map((tag) => (
                                 <span class={`tag ${tag.primary ? "primary" : ""}`}>
